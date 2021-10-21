@@ -1,3 +1,4 @@
-/Users/dsahu/Documents/workspace/DUTTALAB/GermlineVariantPipeline/github_upload/GRCh38.d1.vd1.fa
-/Users/dsahu/Documents/workspace/DUTTALAB/GermlineVariantPipeline/github_upload/GRCh38.d1.vd1.fa.fai
-/Users/dsahu/Documents/workspace/DUTTALAB/GermlineVariantPipeline/github_upload/GRCh38.d1.vd1.dict
+Go to: https://gdc.cancer.gov/about-data/gdc-data-processing/gdc-reference-files/
+Download GDC reference file GRCh38.d1.vd1.fa.tar.gz
+
+
