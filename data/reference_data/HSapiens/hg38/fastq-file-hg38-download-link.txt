@@ -1,2 +1,2 @@
 Go to: https://gdc.cancer.gov/about-data/gdc-data-processing/gdc-reference-files/
-Download GDC reference file GRCh38.d1.vd1.fa.tar.gz
+Download GDC reference file: GRCh38.d1.vd1.fa.tar.gz
