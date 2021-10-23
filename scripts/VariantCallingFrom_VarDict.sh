@@ -3,8 +3,8 @@
 #SBATCH --cpus-per-task=10      #number of cpus per task
 #SBATCH --mem=120Gb    		#total memory per node in GB
 #SBATCH -t 05:00:00     	#time limit hrs:min:sec
-#SBATCH -p standard             #cluster partition in your linux cluster
-#SBATCH -A Kumarlab             #the account/ allocation to use
+#SBATCH -p Partition             #cluster partition in your linux cluster
+#SBATCH -A Account             #the account/ allocation to use
 #SBATCH -e slurm-%j.err		#standard error
 #SBATCH --output slurm-%j.out  	#standard output
 #SBATCH --array=1-5             #submit a job array with index values betwen 1 and 5
@@ -29,15 +29,15 @@ module load goolf/7.1.0_3.1.4 R
 module load samtools/1.12
 
 # need input list
-input_list="/project/UVABX-PK/DUTTALAB/Divya/STAR_protocols_GermlineVariants_identification/wxs-normal-input.list"
+input_list="/STAR_protocols_GermlineVariants_identification/wxs-normal-input.list"
 OPTS=$(sed -n "$SLURM_ARRAY_TASK_ID"p "$input_list")
 
 # path for reference genome fasta and bed files
-hg_fasta="/project/UVABX-PK/DUTTALAB/Divya/STAR_protocols_GermlineVariants_identification/data/reference_data/HSapiens/hg38/GRCh38.d1.vd1.fa"
-exome_bed="/project/UVABX-PK/DUTTALAB/Divya/STAR_protocols_GermlineVariants_identification/data/reference_data/HSapiens/hg38/gencode.v37.gene.annotation.bed"
+hg_fasta="/STAR_protocols_GermlineVariants_identification/data/reference_data/HSapiens/hg38/GRCh38.d1.vd1.fa"
+exome_bed="/STAR_protocols_GermlineVariants_identification/data/reference_data/HSapiens/hg38/gencode.v37.gene.annotation.bed"
 
 # set output directory
-out_VCF="/project/UVABX-PK/DUTTALAB/Divya/STAR_protocols_GermlineVariants_identification/analysis/VCFs_from_VarDict/wxs-normal/"
+out_VCF="/STAR_protocols_GermlineVariants_identification/analysis/VCFs_from_VarDict/wxs-normal/"
 
 # processing BAM file
 echo "reading BAM files in: $OPTS"
