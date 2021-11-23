@@ -1,6 +1,6 @@
 For questions about the scripts in this project please contact Divya Sahu (dsahu@uab.edu or sahu.divya786@gmail.com)
 
-# STAR_protocols_GermlineVariants_identification
+# STAR_protocols_GermlineVariants_calling
 
 Germline variants are positions at which an individual genome differs from the reference genome. These differences are heritable and are passed from parents to their offspring. Germline variants are effective in predicting drug sensitivity and efficacy, however their potential in predicting patient outcome is largely unknown. This protocol describes the novel methodology to screen germline variants using whole exome sequencing data from normal and tumor samples, and RNA sequencing data from tumor samples, and then to identify the small subset of germline variants that are predictive of patient outcome.
 
