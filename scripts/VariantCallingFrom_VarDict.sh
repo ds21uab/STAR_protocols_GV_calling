@@ -56,7 +56,6 @@ out_VCF="$protocol_dir/STAR_protocols_GV_calling/analysis/VCFs_from_VarDict/wxs-
 # processing BAM file
 echo "reading BAM files in: $OPTS"
 cd $(echo $OPTS | tr -d '\r')
-
 bam=$(find . -type f -name *.bam)
 echo "processing" $bam
 samplename="${bam%.*}"
