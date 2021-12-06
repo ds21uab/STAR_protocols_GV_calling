@@ -10,6 +10,8 @@
 #SBATCH --array=1-5             #submit a job array with index values betwen 1 and 5 #Replace 5 with the number number of jobs to be processed. For example: user can check the total jobs in the input.list
 
 ####################################################################################################################################################################################################################################
+#Copywrite Divya Sahu, 2021
+
 ## Clone the github repository: uncomment the code and paste it in the command line 
 # git clone https://github.com/ds21uab/STAR_protocols_GV_calling.git
 ## Save path for the ‘STAR_protocols_GV_calling’ directory in a local or online Linux cluster. For example, 
