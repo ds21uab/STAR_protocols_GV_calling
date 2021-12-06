@@ -1,0 +1,8 @@
+Case_ID	rnaseq
+TCGA-DU-6405	./141e882d-3e43-4ea2-818b-f63b99dafc7b_gdc_realn_rehead
+TCGA-HT-7482	./3f487a76-ca8a-497d-b063-cf2b2952cde5_gdc_realn_rehead
+TCGA-TM-A7CA	./712b91e0-8e55-4900-b81b-56dc82684fb6_gdc_realn_rehead
+TCGA-CS-4938	./7b02ddfc-0edc-4a87-97d3-bab53df7deb5_gdc_realn_rehead
+TCGA-DB-A64U	./98e3992d-9541-45a8-bb0d-ca2d0d147c67_gdc_realn_rehead
+TCGA-DB-A4XC	./a9bfcb6f-ce2b-47e2-a2e2-dd777b6d1344_gdc_realn_rehead
+TCGA-CS-4941	./c00fb1b2-7a00-49ff-9821-ce0ea2d5f936_gdc_realn_rehead
