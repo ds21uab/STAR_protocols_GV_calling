@@ -2,7 +2,7 @@
 #SBATCH -N 1                    #number of nodes
 #SBATCH --cpus-per-task=5      	#number of cpus per task
 #SBATCH --mem=100Gb    			#total memory per node in GB
-#SBATCH -t 02:00:00     		#time limit hrs:min:sec
+#SBATCH -t 01:00:00     		#time limit hrs:min:sec
 #SBATCH -p partition            #cluster partition in your linux cluster
 #SBATCH -A account             	#the account/ allocation to use
 #SBATCH -e slurm-%j.err			#standard error
@@ -15,9 +15,9 @@
 ## Clone the github repository: uncomment the code and paste it in the command line 
 # git clone https://github.com/ds21uab/STAR_protocols_GV_calling.git
 ## Save path for the ‘STAR_protocols_GV_calling’ directory in a local or online Linux cluster. For example, 
-## if the ‘STAR_protocols_GV_calling’ directory is in the home directory then save its path using the following command
+## if the ‘STAR_protocols_GV_calling’ directory is in the current working directory then save its path using the following command
 # nano ~/.bash_profile
-# export protocol_dir="/path_to_home_directory"
+# export protocol_dir="/path_to_current_working_directory"
 # source ~/.bash_profile
 ####################################################################################################################################################################################################################################
 
