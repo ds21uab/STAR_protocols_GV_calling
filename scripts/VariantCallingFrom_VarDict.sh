@@ -45,7 +45,7 @@ module load samtools/1.12
 source ~/.bash_profile
 
 # need input list
-input_list="$protocol_dir/STAR_protocols_GV_calling/data/BAM/wxs-normal/gdc_manifest_wxs-normal.txt"
+input_list="$protocol_dir/STAR_protocols_GV_calling/data/BAM/wxs-normal/wxs-normal_input.list"
 OPTS=$(sed -n "$SLURM_ARRAY_TASK_ID"p "$input_list")
 
 # path for reference genome fasta and bed files
