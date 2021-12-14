@@ -2,7 +2,7 @@
 #SBATCH -N 1                    #number of nodes
 #SBATCH --cpus-per-task=5      	#number of cpus per task
 #SBATCH --mem=100Gb    			#total memory per node in GB
-#SBATCH -t 01:00:00     		#time limit hrs:min:sec
+#SBATCH -t 02:00:00     		#time limit hrs:min:sec
 #SBATCH -p partition            #cluster partition in your linux cluster
 #SBATCH -A account             	#the account/ allocation to use
 #SBATCH -e slurm-%j.err			#standard error
