@@ -38,8 +38,8 @@ date +"%d %B %Y %H:%M:%S"
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # load modules
-module load goolf/7.1.0_3.1.4 R
-module load samtools/1.12
+#module load goolf/7.1.0_3.1.4 R
+#module load samtools/1.12
 
 #source STAR_protocols_GV_calling directory
 source ~/.bash_profile
@@ -53,7 +53,7 @@ hg_fasta="$protocol_dir/STAR_protocols_GV_calling/data/reference_data/HSapiens/h
 exome_bed="$protocol_dir/STAR_protocols_GV_calling/data/reference_data/HSapiens/hg38/gencode.v37.gene.annotation.bed"
 
 # set output directory
-out_VCF="$protocol_dir/STAR_protocols_GV_calling/analysis/VCFs_from_VarDict/wxs-normal/"
+out_VCF="$protocol_dir/STAR_protocols_GV_calling/analysis/VCFs_from_VarDict/wxs-normal"
 
 # processing BAM file
 echo "reading BAM files in: $OPTS"
@@ -74,5 +74,5 @@ VarDict -G $hg_fasta \
 echo "processed" $bam
 
 # unload modules
-module purge
+#module purge
 date +"%d %B %Y %H:%M:%S"
