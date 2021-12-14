@@ -29,7 +29,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # load modules
 # this script was run with samtools 1.12 version
-module load samtools/1.12
+#module load samtools/1.12
 
 #source STAR_protocols_GV_calling directory
 source ~/.bash_profile
@@ -42,7 +42,7 @@ OPTS=$(sed -n "$SLURM_ARRAY_TASK_ID"p "$input_list")
 union_variants_bed="$protocol_dir/STAR_protocols_GV_calling/analysis/union_wxs_rnaseq_variants.bed"
 
 # set output directory
-out_depth="$protocol_dir/STAR_protocols_GV_calling/analysis/variant_coverage/wxs-normal/"
+out_depth="$protocol_dir/STAR_protocols_GV_calling/analysis/variant_coverage/wxs-normal"
 
 # processing BAM file
 echo "reading BAM files in: $OPTS"
@@ -54,5 +54,5 @@ samplename="${bam%.*}.samdepth.txt" #remove string after last dash
 samtools depth -a -b $union_variants_bed $bam -H -Q 30 -o $out_depth/$samplename
 echo "processed" $bam
 
-module purge
+#module purge
 date +"%d %B %Y %H:%M:%S"
