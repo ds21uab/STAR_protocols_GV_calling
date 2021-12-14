@@ -15,7 +15,7 @@ date +"%d %B %Y %H:%M:%S"
 
 
 # load modules
-module load bcftools
+#module load bcftools
 
 #source STAR_protocols_GV_calling directory
 source ~/.bash_profile
@@ -34,5 +34,5 @@ do
 	bcftools view -f PASS $indexedVCF > $out_VCF/$samplename
 done
 
-module purge
+#module purge
 date +"%d %B %Y %H:%M:%S"
