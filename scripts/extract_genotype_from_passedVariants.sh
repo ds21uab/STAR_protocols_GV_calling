@@ -16,7 +16,7 @@ module load bcftools
 source ~/.bash_profile
 
 # output path to store genotype_status. Set path for each data type accordingly
-out_VCF="$protocol_dir/STAR_protocols_GV_calling/analysis/genotype_status/wxs-normal/"
+out_VCF="$protocol_dir/STAR_protocols_GV_calling/analysis/genotype_status/wxs-normal"
 
 # processing each VCF files using for loop
 for myfile in *pass.vcf
