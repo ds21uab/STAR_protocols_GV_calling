@@ -10,7 +10,7 @@
 date +"%d %B %Y %H:%M:%S"
 
 # load modules
-module load bcftools
+#module load bcftools
 
 #source STAR_protocols_GV_calling directory
 source ~/.bash_profile
@@ -30,6 +30,6 @@ done
 cd $out_VCF
 sed -i '1i SAMPLE CHROM POS REF ALT TYPE DP VD AF MQ GT' *.pass.genotype.txt
 
-#unload modules
-module purge
+# unload modules
+#module purge
 date +"%d %B %Y %H:%M:%S"
