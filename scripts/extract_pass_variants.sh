@@ -21,7 +21,7 @@ module load bcftools
 source ~/.bash_profile
 
 # set output path
-out_VCF="$protocol_dir/STAR_protocols_GV_calling/analysis/PASS_variants/wxs-normal/"
+out_VCF="$protocol_dir/STAR_protocols_GV_calling/analysis/PASS_variants/wxs-normal"
 
 # processing each VCF file
 for myfile in *.vcf
