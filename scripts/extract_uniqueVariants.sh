@@ -14,7 +14,7 @@ awk -F ' ' '{print $1"\t"$2"\t"$4"\t"$5}' *.no_header.vcf > allVCF_variants.txt
 cat allVCF_variants.txt | sed "s/#CHROM//g" | sed "s/POS//g" | sed "s/REF//g"| sed "s/ALT//g"| sed -r '/^\s*$/d' > variant_chr_pos_ref_alt.txt
 
 # load modules
-module load goolf/7.1.0_3.1.4  R/4.0.0
+#module load goolf/7.1.0_3.1.4  R/4.0.0
 
 #source STAR_protocols_GV_calling directory
 source ~/.bash_profile
@@ -22,5 +22,5 @@ source ~/.bash_profile
 # run R script
 Rscript $protocol_dir/STAR_protocols_GV_calling/scripts/extract_uniqueVariants.R
 
-module purge
+#module purge
 date +"%d %B %Y %H:%M:%S"
