@@ -22,7 +22,7 @@ print(n)
 ################################################################
 
 # provide tab separated .txt file with information of each Sample_barcode and its corresponding genotype_file, samdepth_file and out_filename
-myfile <- read.table("input_genotype_samdepth_rnaseq-tumor.txt", header=TRUE, check.names=FALSE, sep="\t")
+myfile <- read.table("input_genotype_samdepth.txt", header=TRUE, check.names=FALSE, sep="\t")
 
 # preprocessing file
 print(myfile[n,])
