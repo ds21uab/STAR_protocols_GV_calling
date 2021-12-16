@@ -49,7 +49,6 @@ echo "reading BAM files in: $OPTS"
 cd $(echo $OPTS | tr -d '\r')
 bam=$(find . -type f -name "*.bam")
 echo "processing" $bam
-#samplename="${bam%.*}.samdepth.txt"
 samplename="${bam%%_*}.samdepth.txt" #remove string after first dash
 samtools depth -a -b $union_variants_bed $bam -H -Q 30 -o $out_depth/$samplename
 echo "processed" $bam
