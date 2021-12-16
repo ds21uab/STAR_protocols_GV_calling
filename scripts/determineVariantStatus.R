@@ -1,7 +1,7 @@
 #!/usr/bin/Rscript
 
 # Copywrite Divya Sahu, 2021
-# This code require the tab separated .txt file with information of each Sample_barcode and its corresponding genotype_file, samdepth_file and out_filename
+# This code require the tab separated .txt file with information of each sample its corresponding genotype_file, samdepth_file and out_filename
 
 ###############################################################
 # code chunk:1
