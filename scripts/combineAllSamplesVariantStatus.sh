@@ -2,7 +2,7 @@
 #SBATCH -N 1      
 #SBATCH -n 1
 #SBATCH --mem=375Gb # memory to run the job
-#SBATCH -t 5:00:00  # time to finish the job
+#SBATCH -t 1:00:00  # time to finish the job
 #SBATCH --partition=partition # cluster partition we will use run the job; change this with your cluster env
 #SBATCH -A account             #the account/ allocation to use
 #SBATCH -e slurm-%j.err 
@@ -17,10 +17,10 @@
 date +"%d %B %Y %H:%M:%S"
 
 # unload modules
-module purge
+#module purge
 
 # load modules
-module load goolf/7.1.0_3.1.4  R/4.0.0
+#module load goolf/7.1.0_3.1.4  R/4.0.0
 
 #source STAR_protocols_GV_calling directory
 source ~/.bash_profile
@@ -29,7 +29,7 @@ source ~/.bash_profile
 Rscript $protocol_dir/STAR_protocols_GV_calling/scripts/combineAllSamplesVariantStatus.R $SLURM_ARRAY_TASK_ID
 
 # unload modules
-module purge
+#module purge
 
 date +"%d %B %Y %H:%M:%S"
 
