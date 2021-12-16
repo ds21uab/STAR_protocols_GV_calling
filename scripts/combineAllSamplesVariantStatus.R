@@ -64,10 +64,10 @@ print(paste("allposition_before_dropColumns", ":",
 	table(unlist(lapply(mylist, function(x) all(mylist[[1]]$POS == x$POS)))), 
 	sep=" ")) 
 
-print(paste("samdepth_before_dropColumns", ":",
-	names(table(unlist(lapply(mylist, function(x) all(mylist[[1]]$samdepth == x$samdepth))))), 
-	table(unlist(lapply(mylist, function(x) all(mylist[[1]]$samdepth == x$samdepth)))), 
-	sep= " ")) 
+#print(paste("samdepth_before_dropColumns", ":",
+#	names(table(unlist(lapply(mylist, function(x) all(mylist[[1]]$samdepth == x$samdepth))))), 
+#	table(unlist(lapply(mylist, function(x) all(mylist[[1]]$samdepth == x$samdepth)))), 
+#	sep= " ")) 
 
 
 ##########################################################################################################
