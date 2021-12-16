@@ -25,7 +25,7 @@ library(dplyr)
 # set the input path to read GT_samdepth_merged.txt
 input_path <- "/STAR_protocols_GV_calling/analysis/variant_status/wxs-normal/"
 
-# set the output path where combined_variants_AllSamples to be located
+# set the output path where combined_variants_AllSamples to be saved
 output_path <- "/STAR_protocols_GV_calling/analysis/combined_variant_status/wxs-normal/"
 
 
