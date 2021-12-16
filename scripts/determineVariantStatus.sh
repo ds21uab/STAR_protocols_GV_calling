@@ -2,7 +2,7 @@
 #SBATCH -N 1                    #total number of nodes for the job
 #SBATCH --cpus-per-task=5       #number of CPUS per task       
 #SBATCH --mem=100Gb            #total memory per node in MB
-#SBATCH -t 3:00:00             #amount of time for the whole job
+#SBATCH -t 00:05:00             #amount of time for the whole job
 #SBATCH --partition=partition    #the queue /partition to run on
 #SBATCH -A account             #the account/ allocation to use
 #SBATCH -e slurm-%j.err
@@ -26,10 +26,10 @@ date +"%d %B %Y %H:%M:%S"
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # unload modules
-module purge
+#module purge
 
 # load modules
-module load goolf/7.1.0_3.1.4  R/4.0.0
+#module load goolf/7.1.0_3.1.4  R/4.0.0
 
 # source STAR_protocols_GV_calling directory
 source ~/.bash_profile
@@ -38,5 +38,5 @@ source ~/.bash_profile
 Rscript $protocol_dir/STAR_protocols_GV_calling/scripts/determineVariantStatus.R $SLURM_ARRAY_TASK_ID
 
 # unload modules
-module purge
+#module purge
 date +"%d %B %Y %H:%M:%S"
