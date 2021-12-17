@@ -21,13 +21,14 @@ data <- fread("processed_CombinedVariantsFromAllSamples.txt", stringsAsFactors=F
 data <- setDF(data)
 
 ## check dimension
-print(dim(data)) 
+#print(dim(data)) 
 
 ## keep the location as potential SNP as long as one sample has the alternate allele
 row_sub = apply(data[, 5:ncol(data)], 1, function(row) all(!(row %in% c("Homozygous_alt", "Heterozygous"))))
 data_filtered <- data[!row_sub,]
-dim(data_filtered)
-
+#dim(data_filtered)
+print(paste0("Total Potential SNPs:", " ", nrow(data_filtered)))		
+		
 ## out file
 fwrite(data_filtered, "processed_CombinedPotentialSNPs.txt", 
 	sep="\t", 
