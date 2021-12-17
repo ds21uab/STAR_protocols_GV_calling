@@ -2,7 +2,7 @@
 #SBATCH -N 1
 #SBATCH -n 1
 #SBATCH --cpus-per-task=2 # number of CPUS per task  
-#SBATCH --mem=500Gb # memory to run the job
+#SBATCH --mem=300Gb # memory to run the job
 #SBATCH -t 1:00:00  # time to finish the job
 #SBATCH --partition=partition # cluster partition we will use run the job; change this with your cluster env
 #SBATCH -A account             #the account/ allocation to use
@@ -25,10 +25,10 @@ date +"%d %B %Y %H:%M:%S"
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # unload modules
-module purge
+#module purge
 
 # load modules
-module load goolf/7.1.0_3.1.4  R/4.0.0
+#module load goolf/7.1.0_3.1.4  R/4.0.0
 #module load R # use the latest version of R
 
 # source STAR_protocols_GV_calling directory
@@ -42,6 +42,6 @@ OPTS=$(sed -n "$SLURM_ARRAY_TASK_ID"p "$input_list")
 Rscript $protocol_dir/STAR_protocols_GV_calling/scripts/processCombinedVariants.R $OPTS
 
 # unload modules
-module purge
+#module purge
 
 date +"%d %B %Y %H:%M:%S"
