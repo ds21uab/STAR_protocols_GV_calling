@@ -11,7 +11,6 @@
 
 ####################################################################################################################################################################################################################################
 #Copywrite Divya Sahu, 2021
-
 ## Clone the github repository: uncomment the code and paste it in the command line 
 # git clone https://github.com/ds21uab/STAR_protocols_GV_calling.git
 ## Save path for the ‘STAR_protocols_GV_calling’ directory in a local or online Linux cluster. For example, 
