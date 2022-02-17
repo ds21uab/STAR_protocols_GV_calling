@@ -2,6 +2,9 @@ For questions about the scripts in this project please contact Divya Sahu (dsahu
 
 # STAR_protocols_GermlineVariants_calling
 
+[![DOI](https://zenodo.org/badge/419077939.svg)](https://zenodo.org/badge/latestdoi/419077939)
+
+
 Germline variants are positions at which an individual’s normal genome differs from the reference genome. These genetic changes are present in all cells of the body and are inherited. Germline variants are effective in predicting drug sensitivity and efficacy, however their potential in predicting patient outcome in cancers was largely unknown. Here we provide a bioinformatic pipeline to screen germline variants from the Genomics Data Commons (GDC) data portal. This pipeline integrates paired whole exome sequences (wxs) from normal (wxs-normal) and tumor samples (wxs-tumor), and RNA sequences (rnaseq) from tumor samples (rnaseq-tumor) to determine a patient’s germline variant status. Our pipeline then identifies the small subset of germline variants that are predictive of patient cancer outcome. We demonstrate the use of the pipeline on 5 wxs-normal samples, 7 wxs-tumor samples and 7 rnaseq-tumor samples on a Linux cluster which uses Simple Linux Utility for Resource Management (SLURM).
 
 **Initially this method was described in the following articles**
