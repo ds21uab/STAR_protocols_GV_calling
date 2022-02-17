@@ -1,6 +1,6 @@
 For questions about the scripts in this project please contact Divya Sahu (dsahu@uab.edu or sahu.divya786@gmail.com)
 
-# STAR_protocols_GermlineVariants_calling
+# STAR_protocols_GermlineVariant_calling
 
 [![DOI](https://zenodo.org/badge/419077939.svg)](https://zenodo.org/badge/latestdoi/419077939)
 
