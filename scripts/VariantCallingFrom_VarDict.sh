@@ -67,7 +67,7 @@ VarDict -G $hg_fasta \
 -b $bam \
 -r 3 -Q 30 -q 25 -t \
 --nosv \
--N $samplename -c 1 -S 2 -E 3 -g 4 $exome_bed | teststrandbias.R | var2vcf_valid.pl -N $samplename -E -f 0.05 -v 10 > $out_VCF/$samplename.vcf
+-N $samplename -c 1 -S 2 -E 3 -g 4 $exome_bed | teststrandbias.R | var2vcf_valid.pl -N $samplename -E -f 0.05 -d 10 -v 3 > $out_VCF/$samplename.vcf
 
 # message when task is completed
 echo "processed" $bam
