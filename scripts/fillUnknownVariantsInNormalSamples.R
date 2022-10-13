@@ -21,6 +21,7 @@
 
 # load libraries
 library(data.table)
+library(tidyr)
 
 
 ###########################################################################################################
@@ -64,14 +65,14 @@ rnaseq_sample <- as.data.frame(rnaseq_sample)
 
 patient_list <- list(normal_sample, tumor_sample, rnaseq_sample)
 
-combined_patient = Reduce(function(x, y) merge(x, y, by.x = "Case_ID", by.y = "Case_ID", all.x = FALSE, all.y = FALSE), patient_list)
+combined_patient = Reduce(function(x, y) merge(x, y, by.x = "Case_ID", by.y = "Case_ID", all.x = TRUE, all.y = TRUE), patient_list)
+combined_patient <- combined_patient %>% drop_na(normal)
 print(dim(combined_patient))
 
 
 ###########################################################################################################
 # code chunk:4
 ###########################################################################################################
-
 
 # function to cbind filled dataframe to an empty dataframe
 cbind.fill <- function(...){
@@ -96,7 +97,19 @@ fillUnknownInNormal <- function(n,t,r){
   return(n)
 } 
 
-
+# function to fill unknown in normal (n) from tumor (t)
+fillUnknownInNormalByTumor <- function(n,t){
+  #print(c(n, t))
+  if ( is.na(n) | n == "unknown") {
+    if( !is.na(t) & ! t %in% c("unknown", "")) {
+      n = t
+    }
+    else {
+      n = n
+    }
+  }
+  return(n)
+}
 
 ###########################################################################################################
 # code chunk:6
@@ -107,13 +120,37 @@ for (patient in 1:nrow(combined_patient)){
   tryCatch({
     print(patient)
     id <- combined_patient[patient, 2:ncol(combined_patient)]
-    normal_variants <- combined_variants[, id$normal]
-    matched_tumor_variants <- combined_variants[, id$tumor]
-    matched_rnaseq_variants <- combined_variants[, id$rnaseq]
-    dummy <- cbind(normal_variants, matched_tumor_variants, matched_rnaseq_variants)
-    dummy <- as.data.frame(dummy)
-    z <-  mapply(fillUnknownInNormal,  dummy$normal_variants, dummy$matched_tumor_variants, dummy$matched_rnaseq_variants)
-    final_table <- cbind.fill(final_table, z)
+
+    #if the corresponding rnaseq sample not available
+    if(is.na(id$rnaseq)) {
+      print("Fill the unknown with corresponding wxs-tumor sample")
+      normal_variants <- combined_variants[, id$normal]
+      matched_tumor_variants <- combined_variants[, id$tumor]
+      dummy <- cbind(normal_variants, matched_tumor_variants)
+      dummy <- as.data.frame(dummy)
+      z <-  mapply(fillUnknownInNormalByTumor,  dummy$normal_variants, dummy$matched_tumor_variants)
+      final_table <- cbind.fill(final_table, z)
+      rm(normal_variants, matched_tumor_variants, dummy, id, z)
+    }
+    
+    else if (is.na(id$rnaseq) & is.na(id$tumor)) { #if the corresponding rnaseq and wxs-tumor sample not available
+      print("corresponding wxs-tumor and rnaseq not available")
+      normal_variants <- as.data.frame(combined_variants[, id$normal])
+      final_table <- cbind.fill(final_table, normal_variants)
+      rm(normal_variants)  
+    }
+
+    else { #if both corresponding wxs-tumor and rnaseq are available
+      print("Fill the unknown with corresponding wxs-tumor and rnaseq sample")
+      normal_variants <- combined_variants[, id$normal]
+      matched_tumor_variants <- combined_variants[, id$tumor]
+      matched_rnaseq_variants <- combined_variants[, id$rnaseq]
+      dummy <- cbind(normal_variants, matched_tumor_variants, matched_rnaseq_variants)
+      dummy <- as.data.frame(dummy)
+      z <-  mapply(fillUnknownInNormal,  dummy$normal_variants, dummy$matched_tumor_variants, dummy$matched_rnaseq_variants)
+      final_table <- cbind.fill(final_table, z)
+      rm(normal_variants, matched_tumor_variants, matched_rnaseq_variants, dummy, z)
+    }
   }, error=function(e){cat("ERROR :", conditionMessage(e), "\n")})
 }
 print(dim(final_table))
@@ -125,7 +162,6 @@ final_table$CHROM <- combined_variants$CHROM
 final_table$POS <- combined_variants$POS
 final_table$REF <- combined_variants$REF
 final_table$ALT <- combined_variants$ALT
-
 
 fwrite(final_table, "combined_normal_unknown_filled.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)  
 
@@ -150,7 +186,9 @@ final_table_colarrange <- final_table_colarrange[, colnames(unique(as.matrix(fin
 
 # drop samples
 tumor_wxs_dropsamples <- tumor_wxs[, !(colnames(tumor_wxs) %in% combined_patient$tumor)]
+print(paste0("number of tumor samples added"," ", dim(tumor_wxs_dropsamples)[[2]]))
 rnaseq_dropsamples <- tumor_rnaseq[, !(colnames(tumor_rnaseq) %in% combined_patient$rnaseq)]
+print(paste0("number of rnaseq samples added", " ", dim(rnaseq_dropsamples)[[2]]))
 mylist = list(final_table_colarrange, tumor_wxs_dropsamples, rnaseq_dropsamples)
 
 # merge samples and variants for WXS_normal, WXS_tumor, rnaseq_tumor
