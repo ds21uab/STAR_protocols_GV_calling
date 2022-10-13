@@ -198,6 +198,7 @@ dim(merged_wxs_rnaseq_variants)
 
 # write table
 fwrite(merged_wxs_rnaseq_variants, "final_merged_wxs_rnaseq_variants.txt", sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)
+				   
 
 
 ###########################################################################################################
